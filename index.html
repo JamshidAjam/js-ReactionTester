@@ -122,15 +122,21 @@
                 document.getElementById("box").style.display = "block";
                 
                 start = new Date().getTime();
-
+				                
             }
             
             function appearAfterDelay() {
-                
+
                 setTimeout(makeBoxAppear, Math.random() * 2000);
+				run();
                 
             }
-            
+            function run() {
+				this.setInterval(function() {
+					var cur_pos = document.getElementById("box").style.left;
+					document.getElementById("box").style.left = (parseInt(cur_pos, 10) + 10).toString() + "px";
+				}, 500);
+			}
             appearAfterDelay();
             
             document.getElementById("box").onclick = function() {
